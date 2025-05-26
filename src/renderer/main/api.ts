@@ -9,6 +9,8 @@ export interface API {
 
   reload: (id: string) => void;
 
+  reloadAll: () => void;
+
   subscribeOpenLayer: (
     listener: (layer: LayerProperties) => void,
   ) => () => void;

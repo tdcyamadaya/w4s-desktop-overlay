@@ -68,5 +68,8 @@ export const createOverlay = ({
     reload(id) {
       layers[id]?.reload();
     },
+    reloadAll() {
+      Object.values(layers).forEach((l) => l.reload());
+    },
   };
 };

@@ -4,6 +4,7 @@ export type MessageMap = {
   openLayer: {data: LayerProperties};
   showLayerSettingsWindow: {data: string};
   reload: {data: string};
+  reloadAll: {data: unknown};
   version: {data: string};
 
   "titlebar:minimize": {data: unknown};

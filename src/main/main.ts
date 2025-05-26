@@ -79,6 +79,7 @@ const init = async () => {
   });
 
   msgSubscriber.on("reload", (_, id) => overlay.reload(id));
+  msgSubscriber.on("reloadAll", () => overlay.reloadAll());
   msgSubscriber.on("version", () =>
     msgSender.send("version", app.getVersion()),
   );

@@ -49,6 +49,9 @@ const api: API = {
   reload(id) {
     msgSender.send("reload", id);
   },
+  reloadAll() {
+    msgSender.send("reloadAll");
+  },
   subscribeOpenLayer(listener) {
     const l = (_: unknown, v: LayerProperties) => listener(v);
     msgSubscriber.on("openLayer", l);
