@@ -4,4 +4,6 @@ export type Layer = {
   apply(properties: Partial<LayerProperties>): void;
   dispose(): void;
   reload(): void;
+  zoomIn(): void;
+  zoomOut(): void;
 };

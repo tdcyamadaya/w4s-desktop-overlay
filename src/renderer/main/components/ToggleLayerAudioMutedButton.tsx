@@ -17,6 +17,7 @@ export const ToggleLayerAudioMutedButton = ({id}: {id?: string}) => {
   return (
     <Tooltip title='Mute'>
       <IconButton
+        size='small'
         onClick={() => updateOverlay((o) => toggleLayerAudioMuted(o, id))}
       >
         {value ? <VolumeOffIcon /> : <VolumeUpIcon />}

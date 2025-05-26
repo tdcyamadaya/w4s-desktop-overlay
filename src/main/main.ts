@@ -80,6 +80,8 @@ const init = async () => {
 
   msgSubscriber.on("reload", (_, id) => overlay.reload(id));
   msgSubscriber.on("reloadAll", () => overlay.reloadAll());
+  msgSubscriber.on("zoomIn", (_, id) => overlay.zoomIn(id));
+  msgSubscriber.on("zoomOut", (_, id) => overlay.zoomOut(id));
   msgSubscriber.on("version", () =>
     msgSender.send("version", app.getVersion()),
   );

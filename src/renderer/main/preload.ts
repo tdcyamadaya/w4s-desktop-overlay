@@ -52,6 +52,12 @@ const api: API = {
   reloadAll() {
     msgSender.send("reloadAll");
   },
+  zoomIn(id) {
+    msgSender.send("zoomIn", id);
+  },
+  zoomOut(id) {
+    msgSender.send("zoomOut", id);
+  },
   subscribeOpenLayer(listener) {
     const l = (_: unknown, v: LayerProperties) => listener(v);
     msgSubscriber.on("openLayer", l);
