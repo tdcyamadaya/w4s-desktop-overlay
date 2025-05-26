@@ -16,7 +16,6 @@ import {initAppProtocol} from "./appProtocol/initAppProtocol";
 import {initDefaultProtocolClient} from "./appProtocol/initDefaultProtocolClient";
 import {createMainWindow} from "./createMainWindow";
 import {isDev} from "./dev/dev";
-import {initDevtool} from "./dev/initDevtool";
 import {initReload} from "./dev/initReload";
 import {createOverlay} from "./layer/overlay/createOverlay";
 import {createLayerSettingsWindowManager} from "./layer/settings/createLayerSettingsWindowManager";
@@ -25,9 +24,8 @@ const init = async () => {
   setupTitlebar();
   initAppMenu();
 
-  if (isDev) await initDevtool();
-
   const mainWindow = createMainWindow();
+
   const repFactory = createCachedReplicantFactory<ReplicantMap>({
     createReplicant: (name) =>
       createParentReplicant(name, {
@@ -97,7 +95,7 @@ const init = async () => {
 const quit = () => app.quit();
 
 const disableNavigate = (contents: WebContents) =>
-  contents.on("will-navigate", (event: Event) => event.preventDefault());
+  contents.on("will-navigate", (details) => details.preventDefault());
 
 const disableOpenWindow = (contents: WebContents) =>
   contents.setWindowOpenHandler(() => ({action: "deny"}));
