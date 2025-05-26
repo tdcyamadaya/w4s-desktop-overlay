@@ -116,5 +116,17 @@ export const createLayerWindow = ({
       setWindowPageWithLayerSourceURL(win, v);
     },
     setVisible: createSetVisibleFunction(win),
+    zoomIn() {
+      win.webContents.zoomFactor = Math.min(
+        2,
+        win.webContents.zoomFactor + 0.1,
+      );
+    },
+    zoomOut() {
+      win.webContents.zoomFactor = Math.max(
+        0.2,
+        win.webContents.zoomFactor - 0.1,
+      );
+    },
   };
 };

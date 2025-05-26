@@ -8,6 +8,10 @@ export interface API {
   ) => Replicant<ReplicantMap[TName]>;
 
   reload: (id: string) => void;
+  reloadAll: () => void;
+
+  zoomIn: (id: string) => void;
+  zoomOut: (id: string) => void;
 
   subscribeOpenLayer: (
     listener: (layer: LayerProperties) => void,

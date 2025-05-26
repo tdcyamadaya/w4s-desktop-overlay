@@ -68,5 +68,14 @@ export const createOverlay = ({
     reload(id) {
       layers[id]?.reload();
     },
+    reloadAll() {
+      Object.values(layers).forEach((l) => l.reload());
+    },
+    zoomIn(id) {
+      layers[id]?.zoomIn();
+    },
+    zoomOut(id) {
+      layers[id]?.zoomOut();
+    },
   };
 };

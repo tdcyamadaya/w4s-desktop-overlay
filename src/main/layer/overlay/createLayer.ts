@@ -89,5 +89,11 @@ export const createLayer = ({
     reload() {
       win.reload();
     },
+    zoomIn() {
+      win.zoomIn();
+    },
+    zoomOut() {
+      win.zoomOut();
+    },
   };
 };

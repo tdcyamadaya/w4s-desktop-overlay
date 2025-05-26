@@ -1,4 +1,4 @@
-import {Color, Titlebar} from "custom-electron-titlebar";
+import {Titlebar, TitlebarColor} from "custom-electron-titlebar";
 import {contextBridge, ipcRenderer} from "electron";
 
 import icon from "../../../assets/icon.svg";
@@ -26,13 +26,17 @@ const msgSubscriber = createMessageSubscriber<MessageMap, unknown>({
 
 window.addEventListener("DOMContentLoaded", () => {
   const titlebar = new Titlebar({
-    itemBackgroundColor: Color.fromHex("#00695C"),
-    backgroundColor: Color.fromHex("#00695C"),
+    itemBackgroundColor: TitlebarColor.fromHex("#00695C"),
+    backgroundColor: TitlebarColor.fromHex("#00695C"),
     icon,
   });
 
+  const baseTitle = "W4S Desktop Overlay";
+
+  titlebar.updateTitle(baseTitle);
+
   msgSubscriber.on("version", (_, v) => {
-    titlebar.updateTitle("W4S Desktop Overlay " + v);
+    titlebar.updateTitle(`${baseTitle} ${v}`);
   });
 
   msgSender.send("version");
@@ -44,6 +48,15 @@ const api: API = {
   },
   reload(id) {
     msgSender.send("reload", id);
+  },
+  reloadAll() {
+    msgSender.send("reloadAll");
+  },
+  zoomIn(id) {
+    msgSender.send("zoomIn", id);
+  },
+  zoomOut(id) {
+    msgSender.send("zoomOut", id);
   },
   subscribeOpenLayer(listener) {
     const l = (_: unknown, v: LayerProperties) => listener(v);

@@ -1,8 +1,9 @@
-import {Box, ButtonBase, Typography, useTheme} from "@mui/material";
+import {Box, ButtonBase, Stack, Typography, useTheme} from "@mui/material";
 
 import {LayerOpacitySlider} from "./LayerOpacitySlider";
 import {ToggleLayerAudioMutedButton} from "./ToggleLayerAudioMutedButton";
 import {ToggleLayerVisibleButton} from "./ToggleLayerVisibleButton";
+import {ZoomControl} from "./ZoomControl";
 import {useLayer} from "./hooks/useLayer";
 import {useSelectLayer} from "./hooks/useSelectLayer";
 import {useSelectedLayerID} from "./hooks/useSelectedLayerID";
@@ -50,9 +51,10 @@ export const LayerListItem = ({id}: {id: string}) => {
           width: "100%",
         }}
       >
-        <Box>
+        <Stack direction='row' alignItems='center' sx={{width: "100%"}}>
           <Typography
             sx={{
+              flex: 1,
               textOverflow: "ellipsis",
               overflow: "hidden",
               whiteSpace: "nowrap",
@@ -61,7 +63,8 @@ export const LayerListItem = ({id}: {id: string}) => {
           >
             {title}
           </Typography>
-        </Box>
+          <ZoomControl id={id} />
+        </Stack>
         <Box
           sx={{
             alignItems: "center",

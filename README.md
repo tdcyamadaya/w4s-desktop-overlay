@@ -15,4 +15,4 @@ For example, clock, agenda, donation, or chat.
 
 ## Docs
 
-https://tdc-yamada-ya.github.io/w4s-desktop-overlay/
+https://tdcyamadaya.github.io/w4s-desktop-overlay/

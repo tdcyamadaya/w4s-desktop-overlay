@@ -8,10 +8,9 @@ export type Zone = {
 const createZoneMap = (): {[name: string]: Zone} => {
   return Object.fromEntries(
     moment.tz.names().map((name) => {
-      const zone = moment.tz.zone(name);
-
-      const tempOffset = zone?.offsets[0];
-      const offset = tempOffset ? -Math.floor(tempOffset / 30) * 30 : 0;
+      const zone = moment.tz(name);
+      const tempOffset = zone?.utcOffset();
+      const offset = tempOffset ? Math.floor(tempOffset / 30) * 30 : 0;
 
       return [name, {name, offset}];
     }),

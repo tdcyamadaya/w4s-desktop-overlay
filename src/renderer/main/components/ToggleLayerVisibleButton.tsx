@@ -17,6 +17,7 @@ export const ToggleLayerVisibleButton = ({id}: {id?: string}) => {
   return (
     <Tooltip title='Visibility'>
       <IconButton
+        size='small'
         onClick={() => updateOverlay((o) => toggleLayerVisible(o, id))}
       >
         {value ? <VisibilityIcon /> : <VisibilityOffIcon />}

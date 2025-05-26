@@ -1,6 +1,7 @@
 import {Box, Divider, Typography} from "@mui/material";
 
 import {AddLayerButton} from "./AddLayerButton";
+import {AllReloadButton} from "./AllReloadButton";
 import {LayerList} from "./LayerList";
 
 export const LayerListPane = () => {
@@ -33,6 +34,7 @@ export const LayerListPane = () => {
           </Typography>
         </Box>
         <Box>
+          <AllReloadButton />
           <AddLayerButton />
         </Box>
       </Box>
